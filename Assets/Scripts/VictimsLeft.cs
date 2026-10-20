@@ -18,8 +18,8 @@ public class VictimsLeft : MonoBehaviour
 
     private void Start()
     {
-         text.gameObject.SetActive(false);
-         list = FindObjectsOfType<Victim>(true).ToList();
+        text.gameObject.SetActive(false);
+        list = FindObjectsByType<Victim>(FindObjectsInactive.Exclude).ToList();
     }
 
     public void ActiveText()

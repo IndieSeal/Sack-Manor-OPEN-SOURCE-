@@ -9,7 +9,6 @@ public class HidingSpotManager : MonoBehaviour
     [SerializeField] private AudioSource sfxPlayer;
     [SerializeField] private AudioClip onDestroyClip;
 
-    public event Action OnHidingSpotHit;
     public event Action OnHidingSpotDestroyed;
 
     private List<HidingSpot> hidingSpots = new();
@@ -23,8 +22,8 @@ public class HidingSpotManager : MonoBehaviour
     public void HideChildren()
     {
         //Spawn victims at hiding spots
-        List<Victim> victimList = FindObjectsByType<Victim>(FindObjectsSortMode.None).ToList();
-        List<HidingSpot> hidingSpots = FindObjectsByType<HidingSpot>(FindObjectsSortMode.None).ToList();
+        List<Victim> victimList = FindObjectsByType<Victim>().ToList();
+        List<HidingSpot> hidingSpots = FindObjectsByType<HidingSpot>().ToList();
         for (int i = 0; i < victimList.Count; i++)
         {
             int randomHidingSpot = UnityEngine.Random.Range(0, hidingSpots.Count);

@@ -85,7 +85,7 @@ public class Killer : MonoBehaviour
             invizTimer -= Time.deltaTime;
 
             canThunder = true;
-            List<Door> doors = FindObjectsByType<Door>(FindObjectsSortMode.None).ToList();
+            List<Door> doors = FindObjectsByType<Door>().ToList();
             for (int i = 0; i < doors.Count; i++)
             {
                 if (Mathf.Abs(Vector2.Distance(transform.position, doors[i].transform.position)) < minDistanceForThunder)

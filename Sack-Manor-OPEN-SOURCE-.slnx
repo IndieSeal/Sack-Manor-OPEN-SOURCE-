@@ -1,3 +1,7 @@
 ﻿<Solution>
+  <Project Path="PackageToolsEditor.csproj" />
+  <Project Path="AstarPathfindingProject.csproj" />
+  <Project Path="AstarPathfindingProjectEditor.csproj" />
+  <Project Path="AllIn1SpriteShaderAssembly.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
 </Solution>

@@ -169,7 +169,7 @@ public class Victim : MonoBehaviour, IDamageable
         spr.material = copyOfMat;
 
         //Run to another room
-        List<Door> doors = FindObjectsByType<Door>(FindObjectsSortMode.None).ToList();
+        List<Door> doors = FindObjectsByType<Door>().ToList();
         Transform closestObject = null;
         for (int i = 0; i < doors.Count; i++)
         {
@@ -199,7 +199,7 @@ public class Victim : MonoBehaviour, IDamageable
             transform.position = door.nextDoor.mySpawnPoint.position;
 
             //Find further hiding spot
-            List<HidingSpot> spots = FindObjectsOfType<HidingSpot>(true).ToList();
+            List<HidingSpot> spots = FindObjectsByType<HidingSpot>(FindObjectsInactive.Include).ToList();
             HidingSpot longestDistance = null;
             for (int i = 0; i < spots.Count; i++)
             {

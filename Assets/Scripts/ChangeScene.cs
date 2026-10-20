@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    [SerializeField, FoldoutGroup("General")] private string sceneName = "FirstLevel";
-    [SerializeField, FoldoutGroup("General")] private Animator animator;
-
-    [SerializeField, FoldoutGroup("Scene With Key")] private bool changeSceneWithKey = false;
-    [SerializeField, FoldoutGroup("Scene With Key"), ShowIf("changeSceneWithKey")] private KeyCode sceneKey = KeyCode.Z;
+    [SerializeField] private string sceneName = "FirstLevel";
+    [SerializeField] private Animator animator;
+    [Space]
+    [SerializeField] private KeyCode sceneKey = KeyCode.Z;
     private bool changing;
 
     private void Update()

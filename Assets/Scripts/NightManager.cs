@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -30,7 +29,10 @@ public class Night
     public int nightDuration = 100;
     public int badVictimAmount = 0;
     [Space]
-    [MinValue(0), MaxValue(360)] public int hueShiftValue = 0;
+    [Header("Make sure this value is within 0 and 360")]
+    public int hueShiftValue = 0;
+    
+    [Space]
     public Color textColor = new(194, 239, 192, 1);
     public Color cameraColor = new(45, 26, 0, 1);
 }
@@ -57,7 +59,7 @@ public class NightManager : MonoBehaviour
 
     private void Awake()
     {
-        int isFirst = FindObjectsOfType<NightManager>().ToList().Count;
+        int isFirst = FindObjectsByType<NightManager>().ToList().Count;
         if (isFirst > 1) { Destroy(gameObject); return; }
 
         instance = this;
@@ -99,7 +101,6 @@ public class NightManager : MonoBehaviour
         StartCoroutine(ManageNight());
     }
 
-    [Button]
     public void RepeatNight()
     {
         audioPlayer.PlayOneShot(loseClip);
@@ -107,7 +108,6 @@ public class NightManager : MonoBehaviour
         StartCoroutine(ManageNight());
     }
 
-    [Button]
     public void StartNewNight()
     {
         audioPlayer.PlayOneShot(winClip);
@@ -120,7 +120,7 @@ public class NightManager : MonoBehaviour
         else
         {
             paletteMaterial.SetFloat("_HsvShift", nightList[nightIndex].hueShiftValue);
-            List<TMP_Text> texts = FindObjectsByType<TMP_Text>(FindObjectsSortMode.None).ToList();
+            List<TMP_Text> texts = FindObjectsByType<TMP_Text>().ToList();
             for (int i = 0; i < texts.Count; i++)
             {
                 texts[i].color = nightList[nightIndex].textColor;
@@ -141,7 +141,7 @@ public class NightManager : MonoBehaviour
         nightText.text = nightList[nightIndex].nightName;
         nightDescriptionText.text = nightList[nightIndex].nightDescription;
 
-        List<TMP_Text> texts = FindObjectsByType<TMP_Text>(FindObjectsSortMode.None).ToList();
+        List<TMP_Text> texts = FindObjectsByType<TMP_Text>().ToList();
         for (int i = 0; i < texts.Count; i++)
         {
             texts[i].color = nightList[nightIndex].textColor;
@@ -153,7 +153,7 @@ public class NightManager : MonoBehaviour
         yield return 0;
 
         while(SceneManager.GetActiveScene().name != "Level") yield return null;
-        List<TMP_Text> texts = FindObjectsByType<TMP_Text>(FindObjectsSortMode.None).ToList();
+        List<TMP_Text> texts = FindObjectsByType<TMP_Text>().ToList();
         for (int i = 0; i < texts.Count; i++)
         {
             texts[i].color = nightList[nightIndex].textColor;
@@ -164,7 +164,7 @@ public class NightManager : MonoBehaviour
 
         GameTimer.instance.SetEndTime(nightList[nightIndex].nightDuration);
 
-        List<Victim> victims = FindObjectsOfType<Victim>(true).ToList();
+        List<Victim> victims = FindObjectsByType<Victim>(FindObjectsInactive.Include).ToList();
         for (int i = 0; i < nightList[nightIndex].badVictimAmount; i++){
             if(victims.Count != 0)
             {
