@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    [SerializeField, FoldoutGroup("General")] private Animator animator;
-    [SerializeField, FoldoutGroup("Scene With Key")] private KeyCode sceneKey = KeyCode.Z;
+    [SerializeField] private Animator animator;
+    [SerializeField] private KeyCode sceneKey = KeyCode.Z;
     [SerializeField] private Animator menu;
     private bool changing;
 

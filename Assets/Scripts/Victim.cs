@@ -1,5 +1,4 @@
 using Pathfinding;
-using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +34,10 @@ public class Victim : MonoBehaviour, IDamageable
 
     [Header("Evil Child")]
     [SerializeField] private bool isEvil;
-    [SerializeField, ShowIf("isEvil")] private float evilMovementSpeed = 1;
-    [SerializeField, ShowIf("isEvil")] private int evilHealth = 2;
-    [SerializeField, ShowIf("isEvil")] private float evilAttackDelay = 4;
+    [Space, Header("the following variables will only work if [isEvil] is set to true")]
+    [SerializeField] private float evilMovementSpeed = 1;
+    [SerializeField] private int evilHealth = 2;
+    [SerializeField] private float evilAttackDelay = 4;
     private float attackTimer;
 
     private void Reset()
