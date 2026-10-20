@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HidingSpot_Closet
+  m_Controller: {fileID: 9100000, guid: 7571c0fa5fc714448b0c47d49d3e7108, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a6ba8955bc0cc2149bbd3abf1b7618d9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 16ce1edb3ab5040458dbf5af7c4c29eb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b0a5a16214fe37d42a093ed092b3e691, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 89eba410a33af49488fcc28047525460, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f045af6ea4681d0459bde1a1ffb3f431, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 157cbb787bc51bf4b84d1bfe7f1ce337, type: 2}

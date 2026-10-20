@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HidingSpot_TeddyBear
+  m_Controller: {fileID: 9100000, guid: 7571c0fa5fc714448b0c47d49d3e7108, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a6ba8955bc0cc2149bbd3abf1b7618d9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6d838ef3ab1736e42bea6d876893ec5c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b0a5a16214fe37d42a093ed092b3e691, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fc8efca973409b14c9c331812eee69c7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f045af6ea4681d0459bde1a1ffb3f431, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 502eb0dc0f3bc0646aeed8071c0a0f1d, type: 2}
