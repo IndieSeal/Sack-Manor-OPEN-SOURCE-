@@ -118,7 +118,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HsvShift: 120
+    - _HsvShift: 1
     - _Hue: 0
     - _Metallic: 0
     - _Mode: 0

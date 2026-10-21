@@ -110,6 +110,9 @@ public class Victim : MonoBehaviour, IDamageable
         health--;
         if(health <= 0){
             destinationSetter.target = null;
+            aiPath.maxSpeed = 0;
+            aiPath.canMove = false;
+
             spr.material = Killer.instance.paletteMaterial;
             collider_Component.enabled = true;
 
