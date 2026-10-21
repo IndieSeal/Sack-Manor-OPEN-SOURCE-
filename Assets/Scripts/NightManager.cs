@@ -55,6 +55,9 @@ public class NightManager : MonoBehaviour
     [SerializeField] private AudioClip winClip;
     [SerializeField] private AudioClip loseClip;
 
+    [SerializeField] private bool debugMode = false;
+    [SerializeField] private KeyCode debugSkipNightKey = KeyCode.P;
+
     public static NightManager instance;
 
     private void Awake()
@@ -64,12 +67,33 @@ public class NightManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        if(debugMode) Debug.LogWarning("WARNING: Debug Mode is active!");
     }
 
     private void Start()
     {
         StartCoroutine(ManageNight());
         paletteMaterial.SetFloat("_HsvShift", nightList[nightIndex].hueShiftValue);
+    }
+
+    private void Update()
+    {
+        if(debugMode && Input.GetKeyDown(debugSkipNightKey)) StartNewNight();
+
+        if (Killer.instance == null) return;
+
+        Camera.main.backgroundColor = nightList[nightIndex].cameraColor;
+        paletteMaterial.SetFloat("_HsvShift", nightList[nightIndex].hueShiftValue);
+
+        nightText.text = nightList[nightIndex].nightName;
+        nightDescriptionText.text = nightList[nightIndex].nightDescription;
+
+        List<TMP_Text> texts = FindObjectsByType<TMP_Text>().ToList();
+        for (int i = 0; i < texts.Count; i++)
+        {
+            texts[i].color = nightList[nightIndex].textColor;
+        }
     }
 
     private void LateUpdate()
@@ -81,14 +105,9 @@ public class NightManager : MonoBehaviour
     public IEnumerator Lose(bool death)
     {
         loseText.gameObject.SetActive(true);
-        if (!death)
-        {
-            loseText.text = "Ran out of time";
-        }
-        else
-        {
-            loseText.text = "You were killed";
-        }
+        if (!death) loseText.text = "Ran out of time";
+        else loseText.text = "You were killed";
+        
         Killer.instance.DeleteHearts();
         Killer.instance.SpeedMultiply(0);
         yield return new WaitForSeconds(1.5f);
@@ -128,23 +147,6 @@ public class NightManager : MonoBehaviour
 
             SceneManager.LoadScene("Level");
             StartCoroutine(ManageNight());
-        }
-    }
-
-    private void Update()
-    {
-        if (Killer.instance == null) return;
-
-        Camera.main.backgroundColor = nightList[nightIndex].cameraColor;
-        paletteMaterial.SetFloat("_HsvShift", nightList[nightIndex].hueShiftValue);
-
-        nightText.text = nightList[nightIndex].nightName;
-        nightDescriptionText.text = nightList[nightIndex].nightDescription;
-
-        List<TMP_Text> texts = FindObjectsByType<TMP_Text>().ToList();
-        for (int i = 0; i < texts.Count; i++)
-        {
-            texts[i].color = nightList[nightIndex].textColor;
         }
     }
 
