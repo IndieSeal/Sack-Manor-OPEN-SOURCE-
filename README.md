@@ -1,6 +1,9 @@
-# Sack Manor
+<img width="3840" height="1600" alt="image" src="https://github.com/user-attachments/assets/b5ae3f56-6dd6-43e6-9b76-ddfb3cf7617a" />
 
-<img width="800" height="717" alt="Screencast_20261020_213508-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/56ee6ac2-26e9-4b9d-bc08-d8df9cfa7ccc" />
+<br>
+<br>
+
+<h1 align="center">Sack Manor</h1>
 
 ## IMPORTANT PROJECT SETUP
 For the project to work, you must install the free version of: [A* Pathfinding Project](https://arongranberg.com/astar/download)
@@ -8,6 +11,8 @@ Place it in the plugins folder (this step isn't necesary, but it is recommended 
 
 ## Description
 You're an assassin that lives in an abandoned mansion, one day, after some eliminations, you see 5 dwarves graffitiing your home. They see you holding a knife, scared, they get inside your house. Your mission? Eliminate them before the cops get here.
+
+<img width="800" height="717" alt="Screencast_20261020_213508-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/56ee6ac2-26e9-4b9d-bc08-d8df9cfa7ccc" />
 
 ## Tutorial
 Those damn dwarves are scared of you, and your job is to hunt them, they are hid in objects inside the house, so make sure to knife those things until they're scared and pop out!<br>
